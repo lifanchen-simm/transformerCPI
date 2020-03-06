@@ -4,7 +4,7 @@ This repository contains the source code and the data.
 
 ## TransformerCPI
 
-![](D:\Documents\transformerCPI\model.png)
+![](model.png)
 
 
 
