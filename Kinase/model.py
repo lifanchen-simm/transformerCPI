@@ -2,7 +2,7 @@
 """
 @Time:Created on 2019/9/24 15:49
 @author: LiFan Chen
-@Filename: model_c2.py
+@Filename: model.py
 @Software: PyCharm
 """
 import torch

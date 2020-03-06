@@ -2,7 +2,7 @@
 """
 @Time:Created on 2019/9/17 8:54
 @author: LiFan Chen
-@Filename: main_v2.py
+@Filename: main.py
 @Software: PyCharm
 """
 import torch
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     """Output files."""
     file_AUCs = 'output/result/AUCs--lr=1e-4,dropout=0.1,weight_decay=1e-4,kernel=7,n_layer=3,batch=64'+ '.txt'
     file_model = 'output/model/' + 'lr=1e-4,dropout=0.1,weight_decay=1e-4,kernel=7,n_layer=3,batch=64'
-    AUCs = ('Epoch\tTime(sec)\tLoss_train\tAUC_dev\tPrecision_dev\tRecall_dev')
+    AUCs = ('Epoch\tTime(sec)\tLoss_train\tAUC_dev\tPRC_dev')
     with open(file_AUCs, 'w') as f:
         f.write(AUCs + '\n')
 
@@ -98,12 +98,12 @@ if __name__ == "__main__":
             trainer.optimizer.param_groups[0]['lr'] *= lr_decay
 
         loss_train = trainer.train(dataset_train, device)
-        AUC_dev, precision_dev, recall_dev = tester.test(dataset_dev)
+        AUC_dev, PRC_dev = tester.test(dataset_dev)
 
         end = timeit.default_timer()
         time = end - start
 
-        AUCs = [epoch, time, loss_train, AUC_dev,precision_dev, recall_dev]
+        AUCs = [epoch, time, loss_train, AUC_dev,PRC_dev]
         tester.save_AUCs(AUCs, file_AUCs)
         if AUC_dev > max_AUC_dev:
             tester.save_model(model, file_model)

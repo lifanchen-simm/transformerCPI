@@ -2,7 +2,7 @@
 """
 @Time:Created on 2019/9/25 10:03
 @author: LiFan Chen
-@Filename: main_kinase.py
+@Filename: main.py
 @Software: PyCharm
 """
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     """Output files."""
     file_AUCs = 'output/result/AUCs--lr=1e-4,dropout=0.1,weight_decay=1e-4,kernel=9,n_layer=3,batch=64,balance,lookaheadradam'+ '.txt'
     file_model = 'output/model/' + 'lr=1e-4,dropout=0.1,weight_decay=1e-4,kernel=9,n_layer=3,batch=64,balance,lookaheadradam'
-    AUC = ('Epoch\tTime(sec)\tLoss_train\tAUC_dev\tPRC_dev\tAUC_test\tPRC_test')
+    AUC = ('Epoch\tTime(sec)\tLoss_train\tAUC_dev\tPRC_dev')
     with open(file_AUCs, 'w') as f:
         f.write(AUC + '\n')
 
