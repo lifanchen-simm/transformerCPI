@@ -39,3 +39,7 @@ The test set is created specially for label reversal experiments.
 Lifan Chen (s18-chenlifan@simm.ac.cn)
 
 Mingyue Zheng（myzheng@simm.ac.cn)
+
+## Citation
+
+Lifan Chen, Xiaoqin Tan, Dingyan Wang, Feisheng Zhong, Xiaohong Liu, Tianbiao Yang, Xiaomin Luo, Kaixian Chen, Hualiang Jiang, Mingyue Zheng, TransformerCPI: Improving compound–protein interaction prediction by sequence-based deep learning with self-attention mechanism and label reversal experiments, Bioinformatics, , btaa524, https://doi.org/10.1093/bioinformatics/btaa524
