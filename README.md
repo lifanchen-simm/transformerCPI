@@ -1,6 +1,6 @@
 # TransformerCPI: Improving compound–protein interaction prediction by sequence-based deep learning with self-attention mechanism and label reversal experiments
 
-This repository contains the source code and the data.
+This repository contains the source code ,the data and trained models.
 
 ## TransformerCPI
 
