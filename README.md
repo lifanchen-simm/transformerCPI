@@ -36,9 +36,9 @@ The test set is created specially for label reversal experiments.
 
 ## Author
 
-Lifan Chen (s18-chenlifan@simm.ac.cn)
+Lifan Chen 
 
-Mingyue Zheng（myzheng@simm.ac.cn)
+Mingyue Zheng
 
 ## Citation
 
