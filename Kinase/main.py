@@ -58,7 +58,7 @@ if __name__ == "__main__":
     batch = 64
     lr = 1e-4
     weight_decay = 1e-4
-    iteration = 300
+    iteration = 30
     kernel_size = 9
 
     encoder = Encoder(protein_dim, hid_dim, n_layers, kernel_size, dropout, device)
