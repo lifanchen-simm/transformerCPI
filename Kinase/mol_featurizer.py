@@ -78,7 +78,7 @@ if __name__ == "__main__":
     from gensim.models import Word2Vec
     import os
     import torch
-    import pickle
+    import joblib
     # DATASET = "davis"
 
     with open('../data/kinase_test.txt',"r") as f:          # ../data/kinase_tran.txt
@@ -108,5 +108,5 @@ if __name__ == "__main__":
         interactions.append(label)
     dataset = list(zip(compounds, adjacencies, proteins, interactions))
     with open("dataset/kinase_test.txt", "wb") as f:
-        pickle.dump(dataset, f)
+        joblib.dump(dataset, f)
     # print('The preprocess of ' + DATASET + ' dataset has finished!')
