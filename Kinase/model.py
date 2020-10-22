@@ -290,9 +290,9 @@ class Predictor(nn.Module):
         # compound_mask_1 = compound_mask.unsqueeze(1).unsqueeze(3).to(self.device)
         # protein_mask_1 = protein_mask.unsqueeze(1).unsqueeze(2).to(self.device)
         compound_axes = torch.arange(0, compound_max_len, device=self.device).view(1, -1)
-        compound_mask = (compound_axes < atom_num.view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(3)
+        compound_mask = (compound_axes < torch.Tensor(atom_num).view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(3)
         protein_axes = torch.arange(0, protein_max_len, device=self.device).view(1, -1)
-        protein_mask = (protein_axes < protein_num.view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(2)
+        protein_mask = (protein_axes < torch.Tensor(protein_num).view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(2)
         return compound_mask, protein_mask
 
 
