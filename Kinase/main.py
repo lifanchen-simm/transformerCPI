@@ -13,7 +13,7 @@ import os
 import time
 from model import *
 import timeit
-import pickle
+import joblib
 
 def shuffle_dataset(dataset, seed):
     np.random.seed(seed)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
 
     with open('../dataset/kinase_train.txt',"rb") as f:
-        data = pickle.load(f)
+        data = joblib.load(f)
     dataset = shuffle_dataset(data, 1234)
     dataset_train, dataset_dev = split_dataset(data, 0.8)
 

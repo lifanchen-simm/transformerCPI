@@ -239,12 +239,13 @@ class Decoder(nn.Module):
         # norm = [batch size,compound len]
         # trg = torch.squeeze(trg,dim=0)
         # norm = torch.squeeze(norm,dim=0)
-        sum = torch.zeros((trg.shape[0], self.hid_dim)).to(self.device)
-        for i in range(norm.shape[0]):
-            for j in range(norm.shape[1]):
-                v = trg[i, j, ]
-                v = v * norm[i, j]
-                sum[i, ] += v
+        # sum = torch.zeros((trg.shape[0], self.hid_dim)).to(self.device)
+        # for i in range(norm.shape[0]):
+        #    for j in range(norm.shape[1]):
+        #        v = trg[i, j, ]
+        #        v = v * norm[i, j]
+        #        sum[i, ] += v
+        sum = torch.sum(trg * norm[:, :, None], axis=1)
         # sum = [batch size,hid_dim]
         label = self.do_1(F.relu(self.fc_1(sum)))
         # label = self.do_1(F.relu(self.fc_2(label)))
@@ -280,14 +281,18 @@ class Predictor(nn.Module):
         return output
 
     def make_masks(self, atom_num, protein_num, compound_max_len, protein_max_len):
-        N = len(atom_num)  # batch size
-        compound_mask = torch.zeros((N, compound_max_len))
-        protein_mask = torch.zeros((N, protein_max_len))
-        for i in range(N):
-            compound_mask[i, :atom_num[i]] = 1
-            protein_mask[i, :protein_num[i]] = 1
-        compound_mask = compound_mask.unsqueeze(1).unsqueeze(3).to(self.device)
-        protein_mask = protein_mask.unsqueeze(1).unsqueeze(2).to(self.device)
+        # N = len(atom_num)  # batch size
+        # compound_mask = torch.zeros((N, compound_max_len))
+        # protein_mask = torch.zeros((N, protein_max_len))
+        # for i in range(N):
+        #    compound_mask[i, :atom_num[i]] = 1
+        #    protein_mask[i, :protein_num[i]] = 1
+        # compound_mask_1 = compound_mask.unsqueeze(1).unsqueeze(3).to(self.device)
+        # protein_mask_1 = protein_mask.unsqueeze(1).unsqueeze(2).to(self.device)
+        compound_axes = torch.arange(0, compound_max_len, device=self.device).view(1, -1)
+        compound_mask = (compound_axes < torch.Tensor(atom_num).view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(3)
+        protein_axes = torch.arange(0, protein_max_len, device=self.device).view(1, -1)
+        protein_mask = (protein_axes < torch.Tensor(protein_num).view(-1, 1).to(self.device)).unsqueeze(1).unsqueeze(2)
         return compound_mask, protein_mask
 
 
