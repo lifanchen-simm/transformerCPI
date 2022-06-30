@@ -43,3 +43,6 @@ Mingyue Zheng
 ## Citation
 
 Lifan Chen, Xiaoqin Tan, Dingyan Wang, Feisheng Zhong, Xiaohong Liu, Tianbiao Yang, Xiaomin Luo, Kaixian Chen, Hualiang Jiang, Mingyue Zheng, TransformerCPI: improving compound–protein interaction prediction by sequence-based deep learning with self-attention mechanism and label reversal experiments, Bioinformatics, Volume 36, Issue 16, 15 August 2020, Pages 4406–4414, https://doi.org/10.1093/bioinformatics/btaa524
+
+## TransformerCPI2.0
+TransformerCPI2.0 is now available at https://github.com/lifanchen-simm/transfomerCPI2.0 !
